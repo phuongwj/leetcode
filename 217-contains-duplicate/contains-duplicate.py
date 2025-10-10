@@ -3,9 +3,10 @@ class Solution:
         duplicates = {}
 
         for i in range(len(nums)):
-            if nums[i] not in duplicates.keys():
-                duplicates[nums[i]] = duplicates.get(nums[i], 0) + 1
+            if nums[i] not in duplicates:
+                duplicates[nums[i]] = 0
             else:
                 return True
 
         return False
+            
