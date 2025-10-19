@@ -2,16 +2,17 @@ class Solution:
     def majorityElement(self, nums: List[int]) -> int:
         storage = {}
 
+        frequencies = 0
+        major = 0
+
         for i in range(len(nums)):
             if nums[i] in storage:
                 storage[nums[i]] += 1
             else:
                 storage[nums[i]] = 1
 
-        maxValue = max(storage.values())
+            if storage[nums[i]] > frequencies:
+                frequencies = storage[nums[i]]
+                major = nums[i]
 
-        for key in storage.keys():
-            if storage[key] == maxValue:
-                return key
-
-        
+        return major
