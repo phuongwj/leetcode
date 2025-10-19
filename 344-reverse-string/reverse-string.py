@@ -3,4 +3,12 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
-        s.reverse()
+        
+        lastIndex = len(s) - 1
+        ptr1 = lastIndex - 1
+
+        while ptr1 >= 0:
+            s.append(s[ptr1])
+            s.pop(ptr1)
+
+            ptr1 -= 1
