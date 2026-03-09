@@ -10,8 +10,6 @@ class Solution:
             index = ord('z') - ord(t[i])
             alphabet[index] -= 1
 
-        print("Alphabet is: ", alphabet)
-
         for a in alphabet:
             if a > 0 or a < 0:
                 return False
