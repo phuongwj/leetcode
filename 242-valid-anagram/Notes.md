@@ -1,1 +1,1 @@
-<h2>valid-anagram Notes</h2><hr>[ Time taken: 13 m 8 s ]
+<h2>valid-anagram Notes</h2><hr>[ Time taken: 9m 7s ]
