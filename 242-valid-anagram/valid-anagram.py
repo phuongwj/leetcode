@@ -1,14 +1,19 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        alphabet = [0] * 26
-
-        if len(s) != len(t):
-            return False
+        alphabet = 26 * [0]
 
         for i in range(len(s)):
-            alphabet[ord(s[i]) - ord("a")] += 1
+            index = ord('z') - ord(s[i])
+            alphabet[index] += 1
 
         for i in range(len(t)):
-            alphabet[ord(t[i]) - ord("a")] -= 1
+            index = ord('z') - ord(t[i])
+            alphabet[index] -= 1
 
-        return all(x == 0 for x in alphabet)
+        print("Alphabet is: ", alphabet)
+
+        for a in alphabet:
+            if a > 0 or a < 0:
+                return False
+        
+        return True
