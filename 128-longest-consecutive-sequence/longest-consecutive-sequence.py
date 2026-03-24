@@ -2,27 +2,23 @@ class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         nums.sort()
 
-        print(nums)
-
         if not nums:
-            return 0
-        elif len(nums) == 1:
-            return 1
-
-        curr = nums[0]
-        ans = 0
+            return 0        
+        
         longest = 1
-        for i in range(1, len(nums)):
-            nxt = nums[i]
-            if nxt - curr == 1:
+        output = []
+        for i in range(len(nums)):
+            nxt = i + 1
+            if nxt == len(nums):
+                output.append(longest)
+                return max(output)
+
+            if nums[nxt] - nums[i] == 1:
                 longest += 1
-            elif nxt - curr == 0:
-                pass
-            else:
-                ans = max(ans, longest)
+            elif nums[nxt] - nums[i] > 1:
+                output.append(longest)
                 longest = 1
-            curr = nxt
+            else:
+                pass
 
-        ans = max(ans, longest)
-
-        return ans
+        return max(output)
