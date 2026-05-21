@@ -10,8 +10,4 @@ class Solution:
             else:
                 group[sort].append(strs[i])
 
-        ret = []
-        for key in group.keys():
-            ret.append(group[key])
-
-        return ret
+        return list(group.values())
