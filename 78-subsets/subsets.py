@@ -8,12 +8,12 @@ class Solution:
         
         allSubsets = []
 
-        def findSubsets(currSubset, curr) -> List[List[int]]:
+        def findSubsets(currSubset, curr):
             # we've reached the last element if index is out of bounds
             if curr == len(nums):
                 copy = currSubset.copy()
                 allSubsets.append(copy)
-                return allSubsets
+                return
 
             # include branch.
             currSubset.append(nums[curr])
