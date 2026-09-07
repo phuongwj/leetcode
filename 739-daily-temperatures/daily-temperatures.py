@@ -18,6 +18,7 @@ class Solution:
 
         for curr in range(n):
 
+            # checking for unresolved emptiness since we're doing unresolved[-1]
             while unresolved and temperatures[curr] > temperatures[unresolved[-1]]:
                 diff = curr - unresolved[-1]
                 output[unresolved[-1]] = diff
