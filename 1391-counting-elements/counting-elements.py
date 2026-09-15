@@ -7,12 +7,8 @@ class Solution:
         Time complexity: O(n) and Space Complexity O(n)
         """
 
-        storage = set()
+        storage = set(arr) # cool trick i just found out
         n = len(arr)
-
-        for i in range(n):
-            if arr[i] not in storage:
-                storage.add(arr[i])
 
         counter = 0
 
