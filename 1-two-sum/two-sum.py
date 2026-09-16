@@ -1,14 +1,17 @@
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        mapp = {}
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        storage = {}
+        n = len(nums)
 
-        for i in range(len(nums)):
-            num = nums[i]
+        arr = []
 
-            subtract = target - num
-            if subtract not in mapp.keys():
-                mapp[num] = i
+        for i in range(n):
+            complement = target - nums[i]
+
+            if complement in storage.keys():
+                arr.append(i)
+                arr.append(storage[complement])
             else:
-                return [mapp[subtract], i]
+                storage[nums[i]] = i
 
-        return []
+        return arr    
