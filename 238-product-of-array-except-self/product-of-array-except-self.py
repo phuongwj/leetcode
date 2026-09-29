@@ -1,20 +1,26 @@
 class Solution:
-    def productExceptSelf(self, nums: List[int]) -> List[int]:
-        left = []
+    def productExceptSelf(self, nums: list[int]) -> list[int]:
+        """
+        for each number, find product of everything except itself
+        observation: for each number, we take everything before and
+        after it, multiply together.
+        => Prefix product except self
+        => Suffix product except self
+        """
 
-        for i in range(len(nums)):
-            if not left:
-                left.append(1)
-            else:
-                prod = left[i-1] * nums[i-1]
-                left.append(prod)
+        n = len(nums)
 
-        output = []
-        right = 1
-        for i in range(len(nums) - 1, -1, -1):
-            calc = right * left[i]
-            right = right * nums[i]
-            output.append(calc)
+        preProd = [1] * n
+        suffProd = [1] * n
 
-        output.reverse()
+        for i in range(1, n):
+            preProd[i] = preProd[i-1] * nums[i-1]
+        
+        for i in range(n-2, -1, -1):
+            suffProd[i] = suffProd[i+1] * nums[i+1]
+
+        output = [1] * n
+        for i in range(n):
+            output[i] = preProd[i] * suffProd[i]
+            
         return output
