@@ -33,7 +33,9 @@ class Solution:
                 if subtraction <= 60:
                     output.add(name)
 
+        return sorted(list(output))
+
         # sort the output
-        output = list(output)
-        outputSorted = sorted(output)
-        return outputSorted
+        # output = list(output)
+        # outputSorted = sorted(output)
+        # return outputSorted
