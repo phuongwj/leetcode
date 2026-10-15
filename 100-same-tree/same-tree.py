@@ -18,6 +18,8 @@ class Solution:
             topP = queueP.pop(0)
             topQ = queueQ.pop(0)
 
+            # They match, and there could still be other nodes in the queues
+            # you haven't compared yet. 
             if (not topP) and (not topQ):
                 continue
 
