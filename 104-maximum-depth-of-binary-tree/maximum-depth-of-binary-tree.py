@@ -7,22 +7,25 @@
 class Solution:
     def maxDepth(self, root: TreeNode | None) -> int:
 
+        largest = 0
+
         if not root:
             return 0
-        
-        queue = [root]
-        counter = 0
 
-        while queue:
-            level_size = len(queue)
+        def dfs(root: TreeNode, depth: int) -> int:
+            nonlocal largest
 
-            for _ in range(level_size):
-                node = queue.pop(0)
-                if node.left:
-                    queue.append(node.left)
-                if node.right:
-                    queue.append(node.right)
+            # base case, also handling case when a node
+            # doesn't have children at all
+            if not root:
+                return
             
-            counter += 1
+            if depth > largest:
+                largest = depth
 
-        return counter
+            dfs(root.left, depth+1)
+            dfs(root.right, depth+1)
+
+            return largest
+
+        return dfs(root, 1)
