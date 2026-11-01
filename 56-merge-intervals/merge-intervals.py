@@ -14,7 +14,7 @@ class Solution:
             b = merged[-1][1]
 
             # overlap
-            if (a <= d) and (c <= b):
+            if (c <= b):
                 # only need to change the upper bound, the lower bound stays the same
                 merged[-1][1] = max(b, d)
             else:
